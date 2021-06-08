@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minion translator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+        body {
+            margin: 0 0;
+            font-family: 'Roboto mono', monospace;
+            color: white;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+      
+        header {
+            padding: 0.5rem;
+            text-align: center;
+            background-color: black;
+            height: 10vh;
+            width: 100%;
+        }
+        
+
+        .mid-section {
+            width: 100%;
+            height: 68vh;            
+        }
+
+        .text-areas{
+            margin: 2vh auto;
+            width: 90%;
+            height: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }   
+
+        .text-area {
+            flex-basis: 45%;
+            height: 80%;
+            font-size: 1rem;
+            border-radius: 1rem;
+            padding: 1rem;
+            outline: none;
+        }
+
+        #btn-translate {
+            background-color: black;
+            color: white;
+            padding: 1rem 2rem;
+            display: block;
+            margin: 0.25rem auto;
+        }
+
+                
+        footer {
+            width: 100%;
+            padding: 1rem;
+            background-color: black;
+            text-align: center;
+        }
+        
+        #about{
+            font-size: 2rem;
+        }
+
+        footer p {
+            max-width: 50%;
+            margin: auto;
+            margin-bottom: 0;
+        }
+        
+        .signal-section {
+            background-color:white;
+            height: 60vh;
+            padding: 3vw;
+            
+        }
+
+        .signal-box {
+            width: 30%;
+            position: relative;
+            left:50%;
+            transform: translateX(-50%);
+            border: 2px solid black;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .bulb {
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .glow {
+            background-color: yellow;
+        }
+
+        .bulb-button {   
+            padding: 1rem 5vw;
+            background-color: black;
+            color: white;
+        }
+
+        button:hover {
+            box-shadow: 0 8px 8px 0 gray;
+        }
+
+        #btn-translate-mobile {
+            background-color: black;
+            color: white;
+            padding: 1rem 2rem;
+            display: none;
+            margin: 0.25rem auto;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .mid-section {
+                width: 100%;
+                height: 75vh;            
+            }
+            .text-areas {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            
+            .text-area {
+                width: 90%;
+                height: 45%;
+                font-size: 1rem;
+                border-radius: 1rem;
+                padding: 1rem;
+                outline: none;
+            }
+
+            #btn-translate-mobile {
+                background-color: black;
+                color: white;
+                padding: 1rem 2rem;
+                display: block;
+                margin: 0.25rem auto;
+            }
+
+            #btn-translate {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Morse Translator</h1>
+    </header>
+    <section class="mid-section">
+        <div class="text-areas">
+            
+            <textarea id="english" class="text-area" placeholder="Write something in English here and press Enter to translate. Press Shift+Enter for inserting a new line." ></textarea>
+            <button id="btn-translate-mobile">Translate</button>
+            <textarea disabled id="morse" class="text-area" placeholder="Reverse translation coming soon..." ></textarea>  
+            
+        </div>
+        <button id="btn-translate">Translate</button>
+
+    </section>
+
+    <section class="signal-section">
+        <article class="signal-box">
+            <figure class="bulb"></figure>
+            <button class="bulb-button" onclick="glow(0)" disabled>Transmit signal</button>
+        </article>
+    </section>
+
+    <footer>
+        <div id="about">Did you know?</div>
+        <p>SOS, the internationally recognized distress signal, does not stand for any particular words. 
+            Instead, the letters were chosen because they are easy to transmit in Morse code: "S" is three dots, and "O" is three dashes.
+        </p>
+    </footer>
+
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
